@@ -12,7 +12,3 @@ npm-debug.log
 yarn-error.log
 .idea/
 
-# Elastic Beanstalk Files
-.elasticbeanstalk/*
-!.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml
