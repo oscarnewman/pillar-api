@@ -26,11 +26,13 @@ jobs:
     steps:
       - checkout
 
-      - run:
-        - name: Load Build Deps
-        - command: |
-            sudo apt update
+       - run:
+          name: Installing deployment dependencies
+          command: |
+            sudo apt-get -y -qq update
+            sudo apt-get install python-pip python-dev build-essential
             sudo apt-get install php-pgsql
+            sudo pip install awsebcli --upgrade
             sudo docker-php-ext-install zip
 
       # Download and cache dependencies
