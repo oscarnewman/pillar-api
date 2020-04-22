@@ -19,6 +19,9 @@ class CreateOrganizationTable extends Migration
 
             $table->text('name');
 
+            $table->uuid('logo_image_id')->nullable();
+            $table->foreign('logo_image_id')->references('id')->on('images');
+
             $table->timestamps();
         });
     }

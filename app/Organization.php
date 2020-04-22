@@ -10,4 +10,8 @@ class Organization extends BaseModel
     {
         return $this->belongsToMany(Cause::class, 'cause_organization');
     }
+
+    public function logo() {
+        return $this->hasOne(Image::class, 'logo_image_id');
+    }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Cause;
+use App\Image;
 use App\Organization;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -15,21 +16,9 @@ class CauseSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $causes = collect(([
-            ['name' => 'Emergency Response'],
-            ['name' => "Climate Change"],
-            ['name' => 'COVID-19 Response'],
-            ['name' => 'Reproductive Rights'],
-            ['name' => 'Homelessness & Hunger']
-        ]));
+        factory(Cause::class, 5)->create();
+        factory(Organization::class, 12)->create();
 
-        $causes = $causes->map(function ($cause) use (&$faker) {
-            $cause =  Cause::create($cause);
-            $orgs = factory(Organization::class, rand(3, 8))->create();
 
-            foreach ($orgs as $org) {
-                $cause->organizations()->attach($org);
-            }
-        });
     }
 }

@@ -19,6 +19,9 @@ class CreateCauseTable extends Migration
 
             $table->text('name');
 
+            $table->uuid('image_id')->nullable();
+            $table->foreign('image_id')->references('id')->on('images');
+
             $table->timestamps();
         });
     }
