@@ -29,9 +29,9 @@ jobs:
       - run:
         - name: Load Build Deps
         - command: |
-          sudo apt update # PHP CircleCI 2.0 Configuration File# PHP CircleCI 2.0 Configuration File sudo apt install zlib1g-dev libsqlite3-dev
-          sudo apt-get install php-pgsql
-          sudo docker-php-ext-install zip
+            sudo apt update
+            sudo apt-get install php-pgsql
+            sudo docker-php-ext-install zip
 
       # Download and cache dependencies
       - restore_cache:
