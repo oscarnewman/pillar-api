@@ -1,0 +1,16 @@
+extend type Mutation {
+    login(
+        email: String! @rules(apply: ["required", "email"])
+        password: String! @rules(apply: ["required"])
+    ): Boolean @field(resolver: "AuthResolver@login")
+
+    register(user: RegisterInput): User
+        @field(resolver: "AuthResolver@register")
+}
+
+input RegisterInput {
+    email: String! @rules(apply: ["required", "email", "unique:users,email"])
+    password: String!
+    firstName: String!
+    lastName: String!
+}

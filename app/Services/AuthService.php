@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\User;
+use Hash;
 use Illuminate\Validation\ValidationException;
 
 class AuthService
@@ -81,6 +82,20 @@ class AuthService
         $user->save();
 
         return $this->loginOnceAuthenticated($user, $deviceName);
+    }
+
+    public function registerPassword(string $email, string $password, string $firstName, string $lastName)
+    {
+
+        $user = User::create([
+            'first_name' => $firstName,
+            'last_name' => $lastName,
+            'email' => $email,
+            'password' => Hash::make($password)
+        ]);
+
+
+        return $user;
     }
 
     /**

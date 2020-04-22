@@ -52,4 +52,9 @@ class User extends Authenticatable implements MustVerifyEmail, Transformable
     {
         return UserTransformer::class;
     }
+
+    public function fullName()
+    {
+        return $this->first_name . ' ' . $this->last_name;
+    }
 }
