@@ -14,9 +14,14 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # Using the RAM variation mitigates I/O contention
       # for database intensive operations.
-      # - image: circleci/mysql:5.7-ram
+#      - image: circleci/postgres:latest
       #
       # - image: redis:2.8.19
+    environment:
+      - DB_CONNECTION: pgsql
+      - DB_PORT: 5432
+      - DB_DATABASE: pillar
+      - PGGSSENCMODE: disable
 
     steps:
       - checkout
@@ -39,9 +44,8 @@ jobs:
           paths:
             - ./vendor
 
-      # prepare the database
-      - run: touch storage/testing.sqlite
-      - run: php artisan migrate --env=testing --database=sqlite_testing --force
+      - run:
+          name: Migrate
+          command: |
+            php artisan migrate --force
 
-      # run tests with phpunit or codecept
-      - run: ./vendor/bin/phpunit
