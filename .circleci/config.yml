@@ -30,8 +30,7 @@ jobs:
           name: Installing deployment dependencies
           command: |
             sudo apt-get -y -qq update
-            sudo apt-get install php7.4-pgsql
-            sudo docker-php-ext-install zip
+            sudo docker-php-ext-install zip php7.4-mysql
 
       # Download and cache dependencies
       - restore_cache:
