@@ -28,4 +28,6 @@ Route::prefix('/auth')->group(function () {
     Route::post('/register', 'AuthController@register');
     Route::post('/login', 'AuthController@login');
     Route::middleware('auth:sanctum')->get('/me', 'AuthController@me');
+
+    Route::get('/health', fn () => 'OK');
 });
