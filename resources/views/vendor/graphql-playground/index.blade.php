@@ -542,27 +542,30 @@
             root.classList.add('playgroundIn');
 
             const store = window.s;
-            setTimeout(() => {
-                    const headers = {
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
-                    }
+            // setTimeout(() => {
+            //         const headers = {
+            //             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+            //         }
 
-                    console.log(document.querySelector('meta[name="csrf-token"]').content)
+            //         console.log(document.querySelector('meta[name="csrf-token"]').content)
 
-                    store.dispatch({
-                        type: 'INJECT_HEADERS',
-                        payload: {
-                            headers: JSON.stringify(headers),
-                        }
-                    })
-                },
-                500);
+            //         store.dispatch({
+            //             type: 'INJECT_HEADERS',
+            //             payload: {
+            //                 headers: JSON.stringify(headers),
+            //             }
+            //         })
+            //     },
+            //     500);
 
             GraphQLPlayground.init(root, {
                 endpoint: "{{url(config('graphql-playground.endpoint'))}}",
                 settings: {
                     'request.credentials': 'include',
                 },
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                }
             })
         })
     </script>
