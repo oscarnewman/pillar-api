@@ -22,12 +22,12 @@ use Illuminate\Validation\ValidationException;
 |
 */
 
+Route::get('/health', fn () => 'OK');
+
 Route::prefix('/auth')->group(function () {
     Route::post('/registerApple', 'AuthController@registerApple');
     Route::post('/loginApple', 'AuthController@loginApple');
     Route::post('/register', 'AuthController@register');
     Route::post('/login', 'AuthController@login');
     Route::middleware('auth:sanctum')->get('/me', 'AuthController@me');
-
-    Route::get('/health', fn () => 'OK');
 });
