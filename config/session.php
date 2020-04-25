@@ -153,8 +153,8 @@ return [
     |
     */
 
-//    'domain' => env('SESSION_DOMAIN', null),
-     'domain' => '.pillar.test',
+    'domain' => env('SESSION_DOMAIN', null),
+//     'domain' => '.api.pillar.test',
 
     /*
     |--------------------------------------------------------------------------
