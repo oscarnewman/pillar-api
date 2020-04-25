@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Routing\UrlGenerator;
 use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
@@ -31,8 +32,15 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-
         parent::boot();
+
+
+         /** @var UrlGenerator $url */
+        $url = $this->app['url'];
+
+        // Force the application URL
+        $url->forceRootUrl(config('app.url'));
+
     }
 
     /**

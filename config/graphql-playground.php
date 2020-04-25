@@ -16,9 +16,10 @@ return [
     'route' => [
         'uri' => '/graphql-playground',
         'name' => 'graphql-playground',
-        'middleware' => ['web']
+        'middleware' => ['web'],
         // 'prefix' => '',
-        // 'domain' => 'graphql.' . env('APP_DOMAIN', ' localhost'),
+//        'domain' => env('APP_DOMAIN', 'localhost')
+//         'domain' => 'graphql.' . env('APP_DOMAIN', ' localhost'),
     ],
 
     /*
@@ -32,7 +33,8 @@ return [
     |
     */
 
-    'endpoint' => '/graphql',
+
+    'endpoint' =>  '/graphql',
 
     /*
     |--------------------------------------------------------------------------

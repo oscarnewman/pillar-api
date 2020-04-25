@@ -535,6 +535,7 @@
     <div id="root" />
     <script type="text/javascript">
         window.addEventListener('load', function(event) {
+            {{--console.log({{config('graphql-playground.endpoint')}});--}}
             const loadingWrapper = document.getElementById('loading-wrapper');
             loadingWrapper.classList.add('fadeOut');
 
