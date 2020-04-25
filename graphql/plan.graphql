@@ -1,6 +1,1 @@
-extend type Mutation {
-    registerWithOnboarding(
-        user: RegisterInput!
-        preferences: OnboardignInput!
-    ): User
-}
+
