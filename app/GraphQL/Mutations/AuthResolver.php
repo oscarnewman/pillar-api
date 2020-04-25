@@ -46,8 +46,9 @@ class AuthResolver
         return $this->auth->registerPassword($user['email'], $user['password'], $user['firstName'], $user['lastName']);
     }
 
-    public function test()
+    public function logout()
     {
-        return "IT WOKRS";
+        Auth::logout();
+        return true;
     }
 }

@@ -6,6 +6,8 @@ extend type Mutation {
 
     register(user: RegisterInput): User
         @field(resolver: "AuthResolver@register")
+
+    logout: Boolean @field(resolver: "AuthResolver@logout")
 }
 
 input RegisterInput {

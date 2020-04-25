@@ -22,9 +22,11 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
 
         Telescope::filter(function (IncomingEntry $entry) {
             if ($this->app->environment('local')) {
+                // Report everything local
                 return true;
             }
 
+            // Report just important stuff otherwise
             return $entry->isReportableException() ||
                 $entry->isFailedRequest() ||
                 $entry->isFailedJob() ||
