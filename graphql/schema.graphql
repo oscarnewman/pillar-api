@@ -20,7 +20,7 @@ type User {
     name: String! @method(name: "fullName")
     email: String!
     createdAt: DateTime! @rename(attribute: "created_at")
-    updated_at: DateTime! @rename(attribute: "updated")
+    updatedAt: DateTime! @rename(attribute: "updated_at")
 }
 
 #import auth.graphql
