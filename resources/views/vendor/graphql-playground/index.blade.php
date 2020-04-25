@@ -563,9 +563,6 @@
                 settings: {
                     'request.credentials': 'include',
                 },
-                headers: {
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
-                }
             })
         })
     </script>
