@@ -46,7 +46,7 @@ return [
     |
     */
 
-    'encrypt' => true,
+    'encrypt' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -153,8 +153,8 @@ return [
     |
     */
 
-    'domain' => env('SESSION_DOMAIN', null),
-    // 'domain' => null,
+//    'domain' => env('SESSION_DOMAIN', null),
+     'domain' => '.pillar.test',
 
     /*
     |--------------------------------------------------------------------------

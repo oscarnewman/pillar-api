@@ -18,9 +18,9 @@ class VerifyCsrfToken extends Middleware
         //
     ];
 
-    protected $excludedOrigins = [
-        '/graphql-playground',
-    ];
+//    protected $excludedOrigins = [
+//        '/graphql-playground',
+//    ];
 
 
     // public function handle($request, Closure $next)

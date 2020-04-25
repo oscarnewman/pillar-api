@@ -22,13 +22,25 @@ use Illuminate\Validation\ValidationException;
 |
 */
 
+Route::get('/', function(Request $request) {
+    $name = '';
+    if ($request->user()) {
+        $name = ', ' . $request->user()->first_name;
+    }
+    return [
+        'Hey there' . $name => "Thanks for checking out our API",
+        'Apparently you also enjoy' => 'snooping around urls',
+        'Wanna know more or come work with us?' => 'devs@pillar.gives'
+    ];
+});
+
 Route::get('/health', fn () => 'OK');
 
-//Route::prefix('/auth')->group(function () {
+Route::prefix('/auth')->group(function () {
 //    Route::post('/registerApple', 'AuthController@registerApple');
 //    Route::post('/loginApple', 'AuthController@loginApple');
-//    Route::post('/register', 'AuthController@register');
-//    Route::post('/login', 'AuthController@login');
-//    Route::middleware('auth:sanctum')->get('/me', 'AuthController@me');
-//});
+    Route::post('/register', 'AuthController@register');
+    Route::post('/login', 'AuthController@login');
+    Route::middleware('auth:sanctum')->get('/me', 'AuthController@me');
+});
 
