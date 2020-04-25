@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\JsonOnly;
+use App\Http\Middleware\SentryUserContext;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use Laravel\Sanctum\Http\Controllers\CsrfCookieController;
 use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
@@ -39,6 +40,8 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            SentryUserContext::class,
+
         ],
 
         'api' => [
@@ -46,6 +49,8 @@ class Kernel extends HttpKernel
             'throttle:60,1',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             JsonOnly::class,
+            SentryUserContext::class,
+
         ],
 
     ];

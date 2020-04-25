@@ -31,3 +31,7 @@ Route::prefix('/auth')->group(function () {
     Route::post('/login', 'AuthController@login');
     Route::middleware('auth:sanctum')->get('/me', 'AuthController@me');
 });
+
+Route::get('/throw', function () {
+    throw new Exception('My first Sentry error!');
+});
